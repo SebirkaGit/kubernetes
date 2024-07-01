@@ -20,14 +20,16 @@ spec:
         app: guestbook
     spec:
       containers:
-      - image: us.icr.io/sn-labs-sebirka/guestbook:v1
+      - name: guestbook
+        image: us.icr.io/sn-labs-sebirka/guestbook:v1
         imagePullPolicy: Always
-        name: guestbook
         ports:
         - containerPort: 3000
           name: http
         resources:
           limits:
-            cpu: 50m
+            cpu: "50m"
           requests:
-            cpu: 20m
+            cpu: "20m"
+      imagePullSecrets:
+      - name: ibmcloud-cr-secret  # Reference to the secret created
