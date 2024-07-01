@@ -11,6 +11,7 @@ RUN go build -o main main.go
 
 FROM ubuntu:18.04
 
+
 COPY --from=builder /app/main /app/guestbook
 
 COPY public/index.html /app/public/index.html
